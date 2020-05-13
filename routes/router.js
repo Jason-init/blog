@@ -3,6 +3,7 @@
  */
 var express = require('express')
 var User = require('../models/user.js')
+var md5 = require('blueimp-md5')
 
 var router = express.Router()
 
@@ -45,6 +46,7 @@ router.post('/register', function (req, res) {
                 message: 'Email or nickname already exists'
             })
         }
+        req.body.password = md5(md5(req.body.password))
         new User(req.body).save(function (err, data) {
             if (err) {
                 return res.status(500).json({
