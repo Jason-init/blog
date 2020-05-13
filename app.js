@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.use(session({
-    secret: 'keyboard cat',
+    secret: 'my secret is secret',
     resave: false,
     saveUninitialized: true
 }))
