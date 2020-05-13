@@ -1,12 +1,12 @@
 # Blog
 ## Route Design
 
-| 路由      | 方法 | get参数 | post参数                  | 是否需要权限 | 备注         |
+| 璺敱      | 鏂规硶 | get鍙傛暟 | post鍙傛暟                  | 鏄惁闇�瑕佹潈闄� | 澶囨敞         |
 | --------- | ---- | ------- | ------------------------- | ------------ | ------------ |
-| /         | GET  |         |                           |              | 请求首页     |
-| /register | GET  |         |                           |              | 请求注册页面 |
-| /register | POST |         | email, nickname, password |              | 处理注册请求 |
-| /login    | GET  |         |                           |              | 请求登录页面 |
-| /login    | POST |         | email, password           |              | 处理登录请求 |
-| /logout   | GET  |         |                           |              | 处理登出请求 |
+| /         | GET  |         |                           |              | 璇锋眰棣栭〉     |
+| /register | GET  |         |                           |              | 璇锋眰娉ㄥ唽椤甸潰 |
+| /register | POST |         | email, nickname, password |              | 澶勭悊娉ㄥ唽璇锋眰 |
+| /login    | GET  |         |                           |              | 璇锋眰鐧诲綍椤甸潰 |
+| /login    | POST |         | email, password           |              | 澶勭悊鐧诲綍璇锋眰 |
+| /logout   | GET  |         |                           |              | 澶勭悊鐧诲嚭璇锋眰 |
 

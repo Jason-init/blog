@@ -3,9 +3,11 @@
  */
 var mongoose = require('mongoose')
 
+mongoose.connect('mongodb://localhost/test', {useMongoClient: true})
+
 var Schema = mongoose.Schema
 
-var userSchema = new Schema ({
+var userSchema = new Schema({
     email: {
         type: String,
         required: true
@@ -20,7 +22,7 @@ var userSchema = new Schema ({
     },
     created_time: {
         type: Date,
-        default: Date.nowDate
+        default: Date.now
     },
     last_modified_time: {
         type: Date,
