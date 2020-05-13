@@ -8,7 +8,9 @@ var md5 = require('blueimp-md5')
 var router = express.Router()
 
 router.get('/', function (req, res) {
-    res.render('index.html')
+    res.render('index.html', {
+        user : req.session.user
+    })
 })
 
 router.get('/login', function (req, res) {
@@ -33,27 +35,28 @@ router.post('/register', function (req, res) {
                 nickname: req.body.nickname
             }
         ]
-    }, function (err, data) {
+    }, function (err, user) {
         if (err) {
             return res.status(500).json({
                 err_code: 500,
                 message: 'Internal error'
             })
         }
-        if (data) {
+        if (user) {
             return res.status(200).json({
                 err_code: 1,
                 message: 'Email or nickname already exists'
             })
         }
         req.body.password = md5(md5(req.body.password))
-        new User(req.body).save(function (err, data) {
+        new User(req.body).save(function (err, user) {
             if (err) {
                 return res.status(500).json({
                     err_code: 500,
                     message: 'Internal error'
                 })
             }
+            req.session.user = user
             res.status(200).json({
                 err_code: 0,
                 message: 'Ok'
