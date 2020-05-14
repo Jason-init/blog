@@ -26,6 +26,17 @@ app.use(session({
 
 app.use(router)
 
+app.use(function (req, res) {
+    res.render('404.html')
+})
+
+app.use(function (err, req, res, next) {
+    res.status(500).json({
+        err_code: 500,
+        message: err.message
+    })
+})
+
 app.listen(3000, function () {
     console.log('Server is running')
 })
